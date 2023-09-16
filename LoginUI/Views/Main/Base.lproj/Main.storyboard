@@ -11,7 +11,7 @@
         <scene sceneID="90e-7F-vQh">
             <objects>
                 <tableViewController id="IW4-a8-zAr" customClass="LoginViewController" customModule="LoginUI" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MkZ-1R-xWl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MkZ-1R-xWl" customClass="TPKeyboardAvoidingTableView" customModule="TPKeyboardAvoidingSwift">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -50,12 +50,12 @@
                                                         <constraint firstAttribute="height" constant="40" id="ZHm-YH-O9z"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FgH-sN-Gga">
                                                     <rect key="frame" x="30" y="346" width="333" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Oe-B9-2rf">
                                                     <rect key="frame" x="30" y="406" width="333" height="36"/>
@@ -63,6 +63,9 @@
                                                     <color key="tintColor" systemColor="tintColor"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Login"/>
+                                                    <connections>
+                                                        <action selector="loginButtonPressed:" destination="IW4-a8-zAr" eventType="touchUpInside" id="si8-gY-lIJ"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN9-oH-lQY">
                                                     <rect key="frame" x="30" y="462" width="333" height="34"/>
@@ -86,6 +89,9 @@
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="SignUp"/>
+                                                            <connections>
+                                                                <action selector="signInButtonPressed:" destination="IW4-a8-zAr" eventType="touchUpInside" id="dos-eF-EdJ"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -102,7 +108,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="13W-IR-7NO"/>
-                                                                <constraint firstAttribute="width" constant="150" id="5iB-vw-KO3"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="5iB-vw-KO3"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="Facebook"/>
@@ -160,6 +166,10 @@
                             <outlet property="delegate" destination="IW4-a8-zAr" id="RnL-be-0BG"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="emailTextField" destination="BD9-Uw-EfC" id="uVa-hT-Zov"/>
+                        <outlet property="passwordTextField" destination="FgH-sN-Gga" id="g9o-vV-UKn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUv-nX-1oN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
