@@ -16,6 +16,7 @@
 		0F8A01762AB53D26004155E2 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8A01732AB53D26004155E2 /* UIViewController + Extension.swift */; };
 		0F8A01772AB53D26004155E2 /* UIAlertController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8A01742AB53D26004155E2 /* UIAlertController + Extension.swift */; };
 		0F8A01782AB53D26004155E2 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8A01752AB53D26004155E2 /* String + Extension.swift */; };
+		0FF0A6FD2AB673CC00B10620 /* SiginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0A6FC2AB673CC00B10620 /* SiginViewController.swift */; };
 		E3320FBC89176452C5D78C2D /* Pods_LoginUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8F811D589DD2789DA5C677 /* Pods_LoginUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		0F8A01732AB53D26004155E2 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		0F8A01742AB53D26004155E2 /* UIAlertController + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController + Extension.swift"; sourceTree = "<group>"; };
 		0F8A01752AB53D26004155E2 /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		0FF0A6FC2AB673CC00B10620 /* SiginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiginViewController.swift; sourceTree = "<group>"; };
 		4BE42DADAB4A76E8668DE055 /* Pods-LoginUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginUI.release.xcconfig"; path = "Target Support Files/Pods-LoginUI/Pods-LoginUI.release.xcconfig"; sourceTree = "<group>"; };
 		C8D9F7D9E5ECB854D675892A /* Pods-LoginUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginUI.debug.xcconfig"; path = "Target Support Files/Pods-LoginUI/Pods-LoginUI.debug.xcconfig"; sourceTree = "<group>"; };
 		FF8F811D589DD2789DA5C677 /* Pods_LoginUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0F8A01612AB3DBC0004155E2 /* LoginViewController.swift */,
+				0FF0A6FC2AB673CC00B10620 /* SiginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -129,7 +132,6 @@
 				C8D9F7D9E5ECB854D675892A /* Pods-LoginUI.debug.xcconfig */,
 				4BE42DADAB4A76E8668DE055 /* Pods-LoginUI.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F8A01622AB3DBC0004155E2 /* LoginViewController.swift in Sources */,
+				0FF0A6FD2AB673CC00B10620 /* SiginViewController.swift in Sources */,
 				0F8A01772AB53D26004155E2 /* UIAlertController + Extension.swift in Sources */,
 				0F8A01782AB53D26004155E2 /* String + Extension.swift in Sources */,
 				0F8A015E2AB3DBC0004155E2 /* AppDelegate.swift in Sources */,

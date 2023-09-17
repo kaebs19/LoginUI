@@ -36,7 +36,8 @@ class LoginViewController: UITableViewController {
     
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "SiginViewController") else {return}
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     
