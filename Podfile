@@ -3,9 +3,11 @@
 
 target 'LoginUI' do
   use_frameworks!
-pod "TPKeyboardAvoidingSwift"
-
-
-
-
+  pod 'IQKeyboardManagerSwift'
+  
+  pod 'FBSDKLoginKit'
+  
+  
+  
+  
 end

@@ -21,5 +21,20 @@
 			</array>
 		</dict>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fbAPP-ID</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>2480081858825740</string>
+	<key>FacebookClientToken</key>
+	<string>b78ab5f75b954d37b46e2cd015089b39</string>
+	<key>FacebookDisplayName</key>
+	<string>ExanleApp</string>
 </dict>
 </plist>

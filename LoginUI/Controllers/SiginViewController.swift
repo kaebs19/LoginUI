@@ -11,12 +11,46 @@ class SiginViewController: UITableViewController {
     // MARK: - Outlets
 
     
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var userNameTextfield: UITextField!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+
+    @IBOutlet weak var confgerTextField: UITextField!
+
     
     
     // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        tapGesture()
+        
+        circlImage()
+    }
+    
+    // func objt
+    
+    private func circlImage() {
+        profileImage.clipsToBounds = true
+        profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
+    }
+    
+    fileprivate func tapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureReognizer:)))
+        profileImage.isUserInteractionEnabled = true
+        profileImage.addGestureRecognizer(tapGesture)
+    }
 
+    
+    @objc func imageTapped(tapGestureReognizer: UITapGestureRecognizer) {
+        print("image Tapped!")
+        openGallery()
     }
     
     
@@ -30,10 +64,37 @@ class SiginViewController: UITableViewController {
     
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
+        guard let user = userNameTextfield.text,
+              let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let confirmPassword = confgerTextField.text else {
+            return
+        }
         
+        let imageSystem = UIImage(systemName: "person.fill.badge.plus")
         
+        if profileImage.image?.pngData() == imageSystem?.pngData() {
+            // إذا لم يتم اختيار صورة الملف الشخصي
+            showAlert(title: "Error", message: "Please select profile picture frist")
+        }else if user.isEmpty {
+            self.showAlert(title: "Error", message: "Please enter user name")
+        } else if !email.validateEmailId() {
+            // إذا كان البريد الإلكتروني غير صحيح
+            showAlert(title: "Error", message: "Please enter a valid email")
+        } else if !password.validatePassword() {
+            // إذا كانت كلمة المرور غير صحيحة
+            showAlert(title: "Error", message: "Please enter a valid password")
+        } else if user.isEmpty {
+            showAlert(title: "Error", message: "Please enter user name")
+        } else if !confirmPassword.isEmpty {
+            if password == confirmPassword {
+                // navigation code
+                print("Navigation code")
+            } else {
+                showAlert(title: "Error", message: "Passwords do not match")
+            }
+        }
     }
-    
 
 }
 
@@ -89,4 +150,23 @@ extension SiginViewController {
 
     }
     
+}
+
+extension SiginViewController:UINavigationControllerDelegate , UIImagePickerControllerDelegate {
+    
+    func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .savedPhotosAlbum
+            present(picker, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            profileImage.image = image
+        }
+        dismiss(animated: true)
+    }
 }

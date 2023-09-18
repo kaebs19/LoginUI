@@ -1,16 +1,33 @@
 PODS:
-  - TPKeyboardAvoidingSwift (3.2)
+  - FBAEMKit (16.1.3):
+    - FBSDKCoreKit_Basics (= 16.1.3)
+  - FBSDKCoreKit (16.1.3):
+    - FBAEMKit (= 16.1.3)
+    - FBSDKCoreKit_Basics (= 16.1.3)
+  - FBSDKCoreKit_Basics (16.1.3)
+  - FBSDKLoginKit (16.1.3):
+    - FBSDKCoreKit (= 16.1.3)
+  - IQKeyboardManagerSwift (6.5.12)
 
 DEPENDENCIES:
-  - TPKeyboardAvoidingSwift
+  - FBSDKLoginKit
+  - IQKeyboardManagerSwift
 
 SPEC REPOS:
   trunk:
-    - TPKeyboardAvoidingSwift
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKLoginKit
+    - IQKeyboardManagerSwift
 
 SPEC CHECKSUMS:
-  TPKeyboardAvoidingSwift: ce1a75e0bc3af6b485f8bfa1d0a8320cfc565851
+  FBAEMKit: af2972f39bb0f3f7c45998f435b007833c32ffb2
+  FBSDKCoreKit: 19e2e18b3be578d7a51fed8fdd8c152bef0b9511
+  FBSDKCoreKit_Basics: dd9826ce3c9fd9f8cdf8dbbd0ef0a53e6c0c9e7e
+  FBSDKLoginKit: c395c63a1a6cf4a8a1e6103fd94b8c46329ee81c
+  IQKeyboardManagerSwift: 371b08cb39664fb56030f5345c815a4ffc74bbc0
 
-PODFILE CHECKSUM: 9ba482736bddd2fcfe31c5e58bdf3d4e7e036666
+PODFILE CHECKSUM: 29168d2f773859114953157bf067302d00f006bf
 
 COCOAPODS: 1.12.1

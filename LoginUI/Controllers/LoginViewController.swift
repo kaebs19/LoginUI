@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+
+
 
 class LoginViewController: UITableViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var facebookLogin: FBLoginButton!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -20,6 +23,15 @@ class LoginViewController: UITableViewController {
         // function end keyboard
         dismissKeyboard()
         
+        if let token = AccessToken.current,
+            !token.isExpired {
+            // User is logged in, do work such as go to next view controller.
+        } else {
+            facebookLogin.permissions = ["public_profile", "email"]
+            facebookLogin.delegate = self
+
+        }
+
         
         
     }
@@ -27,7 +39,11 @@ class LoginViewController: UITableViewController {
     
     // MARK: -  Configure Action - Func
     
-   
+    @IBAction func facebookButtonPressed(_ sender: UIButton) {
+        ValidationCode()
+        
+    }
+
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         ValidationCode()
@@ -90,5 +106,25 @@ extension LoginViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIScreen.main.bounds.height
     }
+    
+}
+
+
+extension LoginViewController: LoginButtonDelegate {
+    
+    
+    func loginButton(_ loginButton: FBSDKLoginKit.FBLoginButton, didCompleteWith result: FBSDKLoginKit.LoginManagerLoginResult?, error: Error?) {
+        let token = result?.token?.tokenString
+        let requset = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email , name"] , tokenString: token , version: nil , httpMethod: .get)
+        
+        requset.start { connection, result, error in
+            print(result)
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginKit.FBLoginButton) {
+        print("logout")
+    }
+    
     
 }
